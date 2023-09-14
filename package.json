@@ -1,0 +1,28 @@
+{
+  "name": "next-navigate",
+  "version": "0.1.0",
+  "description": "Help navigate your NextJS application without hard-coded routing",
+  "main": "lib/navigate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "next-navigate": "./bin/init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoudekettingRM/next-navigate.git"
+  },
+  "keywords": [
+    "nextjs",
+    "next",
+    "navigation",
+    "routing"
+  ],
+  "author": "Robin Goudeketting",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GoudekettingRM/next-navigate/issues"
+  },
+  "homepage": "https://github.com/GoudekettingRM/next-navigate#readme"
+}
