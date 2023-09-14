@@ -30,3 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Send a Slack notification if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        # You can do something when a publish happens.
+        run: curl -d "A new version of ${GITHUB_REPOSITORY} was published!" -u ${{ secrets.NTFY_USER }}:${{ secrets.NTFY_PASSWORD }} https://ntfy.goudeketting.nl/next-navigate
