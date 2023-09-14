@@ -1,5 +1,11 @@
 # next-navigate
 
+## 0.2.1
+
+### Patch Changes
+
+- 72df94c: Making a change to check publish flow
+
 ## 0.2.0
 
 ### Minor Changes
