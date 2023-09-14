@@ -25,6 +25,9 @@
   ],
   "author": "Robin Goudeketting",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/GoudekettingRM/next-navigate/issues"
   },
