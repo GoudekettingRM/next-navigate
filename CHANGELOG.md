@@ -1,5 +1,11 @@
 # next-navigate
 
+## 0.2.2
+
+### Patch Changes
+
+- a084f35: Add release script and notifications for successful publish
+
 ## 0.2.1
 
 ### Patch Changes
