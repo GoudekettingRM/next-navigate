@@ -1,4 +1,4 @@
-name: Main CI Flow
+name: CI
 on:
   push:
     branches:
