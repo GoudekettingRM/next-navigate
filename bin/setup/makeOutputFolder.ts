@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
-const fs = require('fs');
+import fs from 'fs';
 
-const makeOutputFolder = (userFolderNameInput) => {
+const makeOutputFolder = (userFolderNameInput: string): void => {
   const outputFolder = userFolderNameInput || 'navigation';
 
   if (!fs.existsSync(outputFolder)) {
@@ -13,4 +12,4 @@ const makeOutputFolder = (userFolderNameInput) => {
   console.log('>');
 };
 
-module.exports = makeOutputFolder;
+export default makeOutputFolder;

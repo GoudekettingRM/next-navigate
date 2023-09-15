@@ -1,18 +1,19 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const tsConfigPath = path.resolve('tsconfig.json');
 const jsConfigPath = path.resolve('jsconfig.json');
 
-const addPathForImports = (userFolderNameInput) => {
+const addPathForImports = (userFolderNameInput: string) => {
   const folderName = userFolderNameInput || 'navigation';
 
   console.log('> Adding path for navigation imports');
-  const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const writeJson = (filePath, data) => fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  const readJson = (filePath: string): Record<string, unknown> => JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const writeJson = (filePath: string, data: Record<string, unknown>) =>
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 
-  const modifyConfig = (config) => {
-    const hasBaseUrl = config.compilerOptions && config.compilerOptions.baseUrl;
+  const modifyConfig = (config: { compilerOptions?: { baseUrl?: string; paths?: Record<string, string[]> } }) => {
+    const hasBaseUrl = config.compilerOptions?.baseUrl;
     const aliasToAdd = {
       '@navigation/*': hasBaseUrl ? [`${folderName}/*`] : [`./${folderName}/*`],
     };
@@ -46,4 +47,4 @@ const addPathForImports = (userFolderNameInput) => {
   console.log('>');
 };
 
-module.exports = addPathForImports;
+export default addPathForImports;
