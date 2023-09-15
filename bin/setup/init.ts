@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const folderName = process.argv[2];
+const folderName = process.argv[2]!;
+const pagesFolder = process.argv[3]!;
 
 import setupImport from './addPathForImports';
 import createConfig from './createConfig';
@@ -10,7 +11,7 @@ const main = async () => {
 
   makeOutputFolder(folderName);
   setupImport(folderName);
-  createConfig(folderName);
+  createConfig(folderName, pagesFolder);
 };
 
 main();

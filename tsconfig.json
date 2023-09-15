@@ -7,7 +7,14 @@
     "strict": true,
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@navigation/*": [
+        "./src/navigation/*"
+      ]
+    }
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }
