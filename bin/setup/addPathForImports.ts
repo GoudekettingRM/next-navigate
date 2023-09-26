@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { outputFolder } from '../../src/utils/folderName';
 
 const tsConfigPath = path.resolve('tsconfig.json');
 const jsConfigPath = path.resolve('jsconfig.json');
 
-const addPathForImports = (userFolderNameInput = 'tmp/next-navigate') => {
+const addPathForImports = () => {
   console.log('Adding path for navigation imports');
   const readJson = (filePath: string): Record<string, unknown> => {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -16,7 +17,7 @@ const addPathForImports = (userFolderNameInput = 'tmp/next-navigate') => {
   const modifyConfig = (config: { compilerOptions?: { baseUrl?: string; paths?: Record<string, string[]> } }) => {
     const hasBaseUrl = config.compilerOptions?.baseUrl;
     const aliasToAdd = {
-      '@next-navigate/*': hasBaseUrl ? [`${userFolderNameInput}/*`] : [`./${userFolderNameInput}/*`],
+      '@next-navigate/*': hasBaseUrl ? [`${outputFolder}/*`] : [`./${outputFolder}/*`],
     };
 
     config.compilerOptions = config.compilerOptions || {};

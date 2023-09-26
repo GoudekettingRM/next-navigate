@@ -1,1 +1,1 @@
-export const outputFolder = 'tmp/next-navigate';
+export const outputFolder = 'lib/next-navigate';
