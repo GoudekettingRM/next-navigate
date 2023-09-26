@@ -1,5 +1,4 @@
 import { getConfig } from '../../bin/setup/createConfig';
-import { TPageEntry } from '../../trash/types';
 import { generatePathInformation } from '../utils/generatePathInformation';
 import { orderedObject } from '../utils/orderedObject';
 import { convertIndexFiles } from './convertIndexFiles';
