@@ -1,5 +1,3 @@
-import { TPageEntry } from '../../dist/src';
-
 export const orderedObject = (object: any): Record<string, TPageEntry> => {
   return Object.keys(object)
     .sort()
