@@ -3,39 +3,7 @@
 # It will create the necessary directories and files
 # and set the correct permissions
 
-folder=''
-if [ -d "src" ]; then
-  folder="src/navigation"
-else
-  folder="navigation"
-fi
-
-echo -e "\nNextNavigate creates a top level folder to store route information."
-echo -e "By default, this folder is called $folder.\n"
-
-while true; do
-  read -p "Do you want to use the default ($folder) (y/n): " defaultOk
-
-  answer=$(echo "$defaultOk" | tr '[:upper:]' '[:lower:]')
-  case "$answer" in
-    y|yes)
-      echo "Great! We'll use $folder as the folder for the route information."
-      break
-      ;;
-    n|no)
-      read -p "Enter the name of the folder where you want to store the route information: " folder
-      break
-      ;;
-    "")
-      echo "You didn't enter anything. Please use Y/y/N/n."
-      ;;
-    *)
-      echo "Invalid option. Please use Y/y/N/n."
-      ;;
-  esac
-done
-
-echo -e "NextNavigate will store the route information in $folder.\n"
+echo -e "NextNavigate will store the route information in /tmp/next-navigate.\n"
 
 pageFolder=''
 if [ -d "pages/" ]; then
@@ -72,4 +40,4 @@ done
 
 echo -e "NextNavigate will find your routes in $pageFolder.\n"
 
-node ./node_modules/next-navigate/dist/bin/setup/init.js $folder $pageFolder
+node ./node_modules/next-navigate/dist/bin/setup/init.js $pageFolder

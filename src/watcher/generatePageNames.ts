@@ -1,13 +1,7 @@
-// import { TPageEntry } from '../types';
+import { TPageEntry } from '../../trash/types';
 
-// export const generateTPageNames = async (pathOptions: Record<string, TPageEntry>) => {
-//   console.log('>> Updating TPageNames...');
-//   const routeKeys = Object.keys(pathOptions);
+export const getTPageNamesContent = async (pathOptions: Record<string, TPageEntry>) => {
+  const routeKeys = Object.keys(pathOptions);
 
-//   const newContent = `${warning}\n\nexport type TPageNames =\n  | '${routeKeys.join(
-//     "'\n  | '",
-//   )}';\n`;
-
-//   await fsp.writeFile(pageNamesPath, newContent);
-//   console.log('>> Done!');
-// };
+  return `type TPageNames =\n    | '${routeKeys.join("'\n    | '")}';\n`;
+};

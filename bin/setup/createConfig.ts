@@ -1,21 +1,26 @@
-import * as fs from 'fs';
+import fs from 'fs';
 
-const configName = 'next-navigation.config.json';
+export const configName = '.next-navigaterc';
 
 const baseConfig = {
-  outDir: '',
   pagesDir: '',
 };
 
-const createConfig = (userFolderNameInput: string, pagesFolder: string): void => {
-  console.log('> Creating config file');
+export type TConfig = typeof baseConfig;
+
+export const getConfig = async (): Promise<TConfig> => {
+  return await require('rc')('next-navigate', {
+    pagesDir: '',
+  });
+};
+
+const createConfig = (pagesFolder: string): void => {
+  console.log('Creating config file');
   if (!fs.existsSync(configName)) {
-    baseConfig.outDir = userFolderNameInput;
     baseConfig.pagesDir = pagesFolder;
     fs.writeFileSync(configName, JSON.stringify(baseConfig, null, 2));
-    console.log(`> Created ${configName}`);
+    console.log(`Created ${configName}`);
   }
-  console.log('>');
 };
 
 export default createConfig;

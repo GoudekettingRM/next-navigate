@@ -8,13 +8,7 @@
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "noEmit": true,
-    "paths": {
-      "@navigation/*": [
-        "./src/navigation/*"
-      ]
-    }
+    "resolveJsonModule": true
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

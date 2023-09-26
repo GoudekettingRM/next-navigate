@@ -1,15 +1,25 @@
 import fs from 'fs';
+import { outputFolder } from '../../src/utils/folderName';
 
-const makeOutputFolder = (userFolderNameInput: string): void => {
-  const outputFolder = userFolderNameInput || 'navigation';
+const addTmpToGitignore = (): void => {
+  const gitignoreContent = fs.existsSync('.gitignore') ? fs.readFileSync('.gitignore', 'utf-8') : '';
+  if (!gitignoreContent.includes('/tmp')) {
+    fs.appendFileSync('.gitignore', '\n/tmp');
+    console.log('Added "/tmp" to .gitignore');
+  } else {
+    console.log('"/tmp" already exists in .gitignore');
+  }
+};
 
+const makeOutputFolder = (): void => {
   if (!fs.existsSync(outputFolder)) {
     fs.mkdirSync(outputFolder, { recursive: true });
-    console.log('> Created your output folder');
+    console.log('Created output folder');
   } else {
-    console.log('> Output folder already exists');
+    console.log('Output folder already exists');
   }
-  console.log('>');
+
+  addTmpToGitignore();
 };
 
 export default makeOutputFolder;
