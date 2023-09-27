@@ -4,14 +4,12 @@ import { infoMessage } from '../src/utils/automaticGenerationInfo';
 import { outputFolder } from '../src/utils/folderName';
 import { getPathOptions } from '../src/watcher/getPathOptions';
 import { getConfig } from './setup/createConfig';
-import { getTypeDefinitions } from './setup/getTypeDefinitions';
+import { generateModuleDefinition } from './setup/generateModuleDefinition';
 
 const watch = async () => {
   const pathOptions = await getPathOptions();
-  const typeDefinitions = await getTypeDefinitions(pathOptions);
+  await generateModuleDefinition(pathOptions);
   const newContent = `${infoMessage}
-
-${typeDefinitions}
 
 export const routes = ${JSON.stringify(pathOptions, null, 2)};
 `;
