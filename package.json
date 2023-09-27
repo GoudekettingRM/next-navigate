@@ -7,7 +7,8 @@
   "types": "dist/src/next-navigate.d.ts",
   "scripts": {
     "dev": "node bin/developAutoBuild.js",
-    "build": "tsup --entry bin/setup/init.ts --entry src/index.ts --format cjs,esm --dts",
+    "build": "tsup --entry bin/setup/init.ts --entry src/index.ts  --entry bin/watch.ts --entry src/useNavigation.ts --format cjs,esm --dts && npm run copy-hooks",
+    "copy-hooks": "cp src/useNavigation.ts dist/src/useNavigation.ts",
     "release": "npm run build && changeset publish",
     "lint": "tsc"
   },
@@ -35,11 +36,14 @@
   "homepage": "https://github.com/GoudekettingRM/next-navigate#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
+    "@types/react": "^18.2.22",
     "chokidar": "^3.5.3",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "rc": "^1.2.8"
+    "next": "^13.5.3",
+    "rc": "^1.2.8",
+    "react": "^18.2.0"
   }
 }

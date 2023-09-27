@@ -1,8 +1,8 @@
 import { captureBetweenBrackets } from './captureBetweenBrackets';
 import { prefixWithSlash } from './prefixWithSlash';
 
-export const generatePathInformation = (fileName: string): { path: string; params: string[] } => {
-  const baseData = { path: prefixWithSlash(fileName), params: [] };
+export const generatePathInformation = (fileName: string): { path: string; params: string[] | null } => {
+  const baseData = { path: prefixWithSlash(fileName), params: null };
   if (!fileName.match(/\[\[.*?\]\]|/g)) {
     return baseData;
   }

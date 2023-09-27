@@ -1,16 +1,16 @@
 import { promises as fsp } from 'fs';
-import { warning } from '../../src/utils/automaticGenerationWarning';
+import { infoMessage } from '../../src/utils/automaticGenerationInfo';
 import { outputFolder } from '../../src/utils/folderName';
 import { getTPageNamesContent } from '../../src/watcher/generatePageNames';
 
 export const generateModuleDefinition = async (pathOptions: Record<TPageNames, TPageEntry>) => {
   const pageNamesType = await getTPageNamesContent(pathOptions);
 
-  const newContent = `${warning}\n\n
+  const newContent = `${infoMessage}\n\n
 declare global {
   type TPageEntry = {
     path: string;
-    params: string[];
+    params: string[] | null;
   }
 
   type ParamObject<Params extends string[]> = {

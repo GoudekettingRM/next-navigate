@@ -11,7 +11,8 @@ const pathOptionsFrom = (files: string[]): Record<string, TPageEntry> => {
         .replace(/_?\[\[.*?\]\]_?|\[.*?\]/g, '')
         .replace(/\//g, '-')
         .replace(/-$/, '')
-        .replace(/-+/g, '-');
+        .replace(/-+/g, '-')
+        .replace(/-$/, '');
 
       acc[pageIdentifier === '' ? 'home' : pageIdentifier] = generatePathInformation(file);
       return acc;

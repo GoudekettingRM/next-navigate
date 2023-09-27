@@ -29,7 +29,6 @@ const walk = async (dir: string, rootDir = dir): Promise<string[]> => {
         !fileName.startsWith('.') &&
         !fileName.startsWith('api/')
       ) {
-        console.log('filePath', filePath);
         const relativePath = removeExtension(path.relative(rootDir, filePath));
         results.push(relativePath);
       }

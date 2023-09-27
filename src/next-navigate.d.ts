@@ -3,7 +3,7 @@ declare global {
 
   export type TPageEntry = {
     path: string;
-    params: string[];
+    params: string[] | null;
   };
 
   export type ParamObject<Params extends string[]> = {
@@ -12,7 +12,7 @@ declare global {
 
   export type ParamsAreEmpty<Params extends string[]> = Params extends [] ? true : false;
 
-  export type TPageNames = 'home';
+  export type TPageNames = 'home' | 'about' | 'profile' | 'dashboard';
 }
 
 export {};
