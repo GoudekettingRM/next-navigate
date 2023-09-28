@@ -17,9 +17,10 @@ const addPathForImports = () => {
   const modifyConfig = (config: { compilerOptions?: { baseUrl?: string; paths?: Record<string, string[]> } }) => {
     const hasBaseUrl = config.compilerOptions?.baseUrl;
     const aliasToAdd = {
-      'next-navigate': hasBaseUrl ? [`${outputFolder}/index.ts`] : [`./${outputFolder}/index.ts`],
+      'next-navigate': hasBaseUrl
+        ? [`${outputFolder}/`, `${outputFolder}/*`]
+        : [`./${outputFolder}/`, `./${outputFolder}/*`],
     };
-
     config.compilerOptions = config.compilerOptions || {};
     config.compilerOptions.paths = {
       ...config.compilerOptions.paths,

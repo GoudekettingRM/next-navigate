@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "node bin/developAutoBuild.js",
     "build": "rm -rf dist && tsup --entry bin/setup/init.ts --entry src/index.ts  --entry bin/watch.ts --entry src/useNavigation.ts --format cjs,esm --dts && npm run copy-hooks",
-    "copy-hooks": "cp src/useNavigation.ts dist/src/useNavigation.ts",
+    "copy-hooks": "cp src/lib/getPath.ts dist/src/getPath.ts && cp src/lib/isRouteWithParams.ts dist/src/isRouteWithParams.ts && cp src/lib/NNLink.tsx dist/src/NNLink.tsx && cp src/lib/types.ts dist/src/types.ts && cp src/lib/useNavigation.ts dist/src/useNavigation.ts",
     "release": "npm run build && changeset publish",
     "lint": "tsc"
   },

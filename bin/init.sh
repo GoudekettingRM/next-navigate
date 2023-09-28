@@ -3,7 +3,7 @@
 # It will create the necessary directories and files
 # and set the correct permissions
 
-echo -e "NextNavigate will store the route information in /tmp/next-navigate.\n"
+echo -e "NextNavigate will store the route information in /lib/next-navigate.\n"
 
 pageFolder=''
 if [ -d "pages/" ]; then
