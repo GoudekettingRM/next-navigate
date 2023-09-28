@@ -1,5 +1,22 @@
 # next-navigate
 
+## 0.3.0
+
+### Minor Changes
+
+- 2da9aee: Improve init script
+- dbd057f: Revert delete of d.ts and split logic for getting the path
+- 395319e: Get type completion to work correctly
+- a0702d8: Basic initial setup that generates usable routes in TS Next Project
+- d085ee1: Make imports work better, copy all relevant files, and add Wrapping Link Component
+
+### Patch Changes
+
+- a07c863: Add the watch pages script to the package.json on install
+- 755f446: Use typescript for init scripting, fix publish notification
+- df57365: Add --minify to tsup and remove logs
+- f36b1f1: Change tmp to lib and remove gitingore addition
+
 ## 0.2.2
 
 ### Patch Changes
