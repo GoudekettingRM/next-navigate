@@ -8,20 +8,12 @@ export const generateModuleDefinition = async (pathOptions: Record<TPageNames, T
 
   const newContent = `${infoMessage}\n\n
 declare global {
-  type TPageEntry = {
+  export type TPageEntry = {
     path: string;
     params: string[] | null;
   }
 
-  type ParamObject<Params extends string[]> = {
-    [key in Params[number]]: string;
-  };
-
-  type ParamsAreEmpty<Params extends string[]> = Params extends [] ? true : false;
-
-  ${pageNamesType}
-
-  const routes: Record<TPageNames, TPageEntry>;
+  export ${pageNamesType}
 }
 
 export {};

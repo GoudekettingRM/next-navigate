@@ -1,18 +1,22 @@
 export const routes = {
-  about: {
-    path: '/about/[username]',
-    params: ['username'],
+  oneParam: {
+    path: '/oneParam/[param]',
+    params: ['param'],
   },
-  dashboard: {
+  noParam: {
     path: '/dashboard',
     params: null,
   },
-  home: {
-    path: '/',
-    params: null,
+  'noParam-param': {
+    path: '/dashboard/[param]',
+    params: ['param'],
   },
-  profile: {
-    path: '/profile/[userId]/[section]',
-    params: ['userId', 'section'],
+  moreThanOneParam: {
+    path: '/moreThanOneParam/[param1]/[param2]',
+    params: ['param1', 'param2'],
+  },
+  catchAllParam: {
+    path: '/catchAllParam/[[...param]]',
+    params: ['...param'],
   },
 };
